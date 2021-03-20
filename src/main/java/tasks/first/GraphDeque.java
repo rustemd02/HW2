@@ -7,7 +7,7 @@ public class GraphDeque {
 
     public static void main(String[] args) {
         GraphDeque graphDeque = new GraphDeque();
-        System.out.println(graphDeque.breadthFirst(graphDeque.matrix(), 1));
+        System.out.println(graphDeque.breadthFirst(graphDeque.matrix(), 0));
     }
 
     public String breadthFirst(boolean[][] adjacencyMatrix, int indexStart) {
@@ -15,8 +15,8 @@ public class GraphDeque {
         arrayDeque.push(indexStart);
         while (!arrayDeque.isEmpty()) {
             for (int i = 0; i < adjacencyMatrix.length; i++) {
-                if ((adjacencyMatrix[i][indexStart - 1] & !result.contains(String.valueOf(i + 1))) & !arrayDeque.contains(i + 1)) {
-                    arrayDeque.push(i + 1);
+                if ((adjacencyMatrix[i][indexStart] & !result.contains(String.valueOf(i))) & !arrayDeque.contains(i)) {
+                    arrayDeque.push(i);
                 }
 
             }
